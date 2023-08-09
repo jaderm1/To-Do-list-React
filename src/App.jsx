@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import CardAdicionar from './components/CardAdicionar'
+import ListItem from './components/ListItem'
 
 function App() {
   const [listaTarefas, setListaTarefas] = useState([
@@ -20,7 +21,9 @@ function App() {
   return (
     <>
     <CardAdicionar adicionarTarefa={adicionarTarefa}/>
-    <div>{listaTarefas.map(tarefa=>(<span>{tarefa.textoTarefa}- id: {tarefa.id} </span>))}</div>
+    <div>{listaTarefas.map(tarefa=>
+      (<ListItem key={tarefa.id} textoTarefa={tarefa.textoTarefa} finalizado={tarefa.finalizado}/>
+      ))}</div>
 
 
  </>
